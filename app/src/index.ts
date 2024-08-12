@@ -15,7 +15,7 @@ const dataStoreId = process.env.DATASTORE_ID || "vertexai-rag-node-tf";
 
 app.use(express.json());
 
-app.get("/google-search-grounding", async (req, res) => {
+app.post("/google-search-grounding", async (req, res) => {
   const r = await generateContentWithGoogleSearchGrounding(
     projectId,
     location,
@@ -31,7 +31,7 @@ app.get("/google-search-grounding", async (req, res) => {
   });
 });
 
-app.get("/vertex-ai-search-grounding", async (req, res) => {
+app.post("/vertex-ai-search-grounding", async (req, res) => {
   const r = await generateContentWithVertexAISearchGrounding(
     projectId,
     location,
